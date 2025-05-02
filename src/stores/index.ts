@@ -11,4 +11,4 @@ export default pinia
 //     useAdminAuthStore
 // }
 // 下面可以统一导出
-export * from './modules/admin'
+export * from './modules/user'

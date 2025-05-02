@@ -21,7 +21,8 @@ instance.interceptors.request.use(
   },
   (err) => Promise.reject(err)
 )
-// 相应拦截器
+
+//响应拦截器
 instance.interceptors.response.use(
   (res) => {
     // TODO 3. 处理业务失败
@@ -30,8 +31,6 @@ instance.interceptors.response.use(
       return res.data.data
     }
     return res
-    ElMessage({ message: res.data.message || '服务异常', type: 'error' })
-    return Promise.reject(res.data)
   },
   (err) => {
     // TODO 5. 处理401错误
