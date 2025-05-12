@@ -22,7 +22,7 @@ const rules = {
   ]
 }
 const userStore = useAdminAuthStore()
-const router=useRouter()
+const router = useRouter()
 const login = async () => {
   await form.value.validate()
   const res = await userLoginService(formModel.value)
@@ -99,6 +99,7 @@ const login = async () => {
         line-height: 40px;
         font-style: 15px;
         font-weight: 400;
+        --el-color-primary: #e4633b;
       }
       /* 复选框选中状态样式 */
       :deep(.el-checkbox) {

@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 // 管理员模块  token setToken removeToken
 // 做区分的唯一标识
+// token
 export const useAdminAuthStore = defineStore(
   'administrators',
   () => {
@@ -24,3 +25,5 @@ export const useAdminAuthStore = defineStore(
     persist: true
   }
 )
+
+
