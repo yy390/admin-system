@@ -20,10 +20,25 @@ export const useAdminAuthStore = defineStore(
       removeToken
     }
   },
+  
   // 进行持久化
   {
     persist: true
   }
 )
+export const useUserStore = defineStore('user', {
+  state: () => ({
+    token: '',
+    user: {}
+  }),
+  actions: {
+    setToken(token: string) {
+      this.token = token
+    },
+    setUser(user: object) {
+      this.user = user
+    }
+  }
+})
 
 

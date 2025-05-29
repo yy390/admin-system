@@ -26,3 +26,15 @@ export const userListService = ({
       page_index
     }
   })
+  // 修改密码
+  // api/user.ts
+export const userUpdatePasswordService = (data: {
+  password: string
+  new_password: string
+}) => {
+  // 实际调用后端接口
+  return request.post('/api/v1/manager/user/updatepassword', {
+    password:data.password,
+    new_password:data.new_password
+  })
+}

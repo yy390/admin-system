@@ -1,7 +1,9 @@
+<script lang="ts" setup>
+import VerticalCom from './components/VerticalCom.vue';
+</script>
 <template>
-  <div>
-    <!-- 注意：每一级路由都要配置路由出口 -->
-    架子布局
-    <router-view></router-view>
-  </div>
+  <VerticalCom></VerticalCom>
+  <span class="iconfont icon-quanping"></span>
 </template>
+<style lang="scss" scoped>
+</style>
