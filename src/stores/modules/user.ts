@@ -20,7 +20,6 @@ export const useAdminAuthStore = defineStore(
       removeToken
     }
   },
-  
   // 进行持久化
   {
     persist: true

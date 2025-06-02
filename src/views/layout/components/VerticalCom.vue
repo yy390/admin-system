@@ -17,6 +17,10 @@ import TabsboxCom from './TabsboxCom.vue'
       <el-container>
         <el-header>
           <HeaderCom></HeaderCom>
+          <div class="userMessage">
+            dfdfbs
+            <span style="background-color: pink;">sda</span>
+          </div>
         </el-header>
         <div class="tabs-box">
           <TabsboxCom></TabsboxCom>
@@ -61,12 +65,19 @@ import TabsboxCom from './TabsboxCom.vue'
   }
   .el-header {
     height: 56px;
+    display: flex;
+    justify-content: space-between;
     border-bottom: 1px solid #e3e6ec;
+    .userMessage {
+      display: flex;
+      align-items: center;
+    }
   }
   .tabs-box {
     box-sizing: border-box;
     height: 40px;
-    padding: 12px;
+    padding: 0 12px;
+    border-bottom: 1px solid #e3e6ec;
   }
   .el-main {
     padding: 1px;

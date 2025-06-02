@@ -1,21 +1,31 @@
 <script setup lang="ts">
 import calendarCom from './component/calendarCom.vue'
-// import{ statisticsCountnumService} from '@/api/statistics'
-import { ref } from 'vue'
-const data = ref({
-  user_total_count: '',
-  register_count: '',
-  group_total_count: '',
-  group_create_count: '',
-  online_total_count: ''
+import { onMounted, ref } from 'vue'
+import { getCountnumService } from '@/api/statistics'
+
+const date = '2025-06-01'
+interface TestData {
+  user_total_count: number
+  register_count: number
+}
+const data = ref<TestData>({})
+const getData = async () => {
+  const res = await getCountnumService(date)
+
+  console.log(res)
+  data.value = res
+  console.log(data.value)
+}
+onMounted(async () => {
+  await getData()
 })
 </script>
 <template>
   <div class="main">
-    <div class="card" :model="data">
+    <div class="card">
       <div class="cardItem">
         <div>当日注册人数</div>
-        <span>{{data.register_count}}</span>
+        <span>{{ data.user_total_count }}</span>
       </div>
       <div class="cardItem">
         <div>当日新建群</div>
@@ -56,15 +66,12 @@ const data = ref({
   padding: 12px;
   padding-bottom: 0px;
   box-sizing: border-box;
-  
-
   .card {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-bottom: 20px;
     height: 156px;
-
     .cardItem {
       background: white;
       border-radius: 4px;
@@ -92,7 +99,6 @@ const data = ref({
       padding-right: 12px;
       border: 1px solid #e4e7ed;
       .calendar {
-        margin-top: 9px;
         float: right;
       }
     }

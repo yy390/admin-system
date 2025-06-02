@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAdminAuthStore } from '@/stores'
 //不带#
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -146,5 +147,10 @@ const router = createRouter({
     }
   ]
 })
-
+// 添加登录访问拦截
+router.beforeEach((to) => {
+  // 如果没有token，并且放荡问的不是登录页，拦截到登录页，其他情况正常放行
+  const useStore = useAdminAuthStore()
+  if (!useStore.token && to.path!=='/login') return '/login'
+})
 export default router

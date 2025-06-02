@@ -6,14 +6,13 @@ interface TabType {
   title: string
   path: string
 }
-
 const route = useRoute()
 const router = useRouter()
 const activeTab = ref(route.path)
 const tabList = reactive([
   {
     title: '首页',
-    path: '/'
+    path: '/home'
   }
 ])
 //点击标签导致activeTab改变时触发
@@ -62,8 +61,13 @@ function tabRemove(targetTab: string) {
       :key="item.path"
       :label="item.title"
       :name="item.path"
-      :closable="item.path != '/'"
+      :closable="item.path != '/home'"
     >
     </el-tab-pane>
   </el-tabs>
 </template>
+<style lang="scss" scoped>
+:deep(.el-tabs__nav-wrap.is-top::after) {
+  display: none;
+}
+</style>

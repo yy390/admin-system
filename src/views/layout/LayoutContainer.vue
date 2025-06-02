@@ -5,5 +5,3 @@ import VerticalCom from './components/VerticalCom.vue';
   <VerticalCom></VerticalCom>
   <span class="iconfont icon-quanping"></span>
 </template>
-<style lang="scss" scoped>
-</style>
