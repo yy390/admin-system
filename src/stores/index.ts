@@ -12,4 +12,3 @@ export default pinia
 // }
 // 下面可以统一导出
 export * from './modules/user'
-export * from './modules/statistics'

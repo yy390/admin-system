@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import calendarCom from './component/calendarCom.vue'
+import lineChart from './component/lineChart.vue'
 import { onMounted, ref } from 'vue'
 import { getCountnumService } from '@/api/statistics'
-
-const date = '2025-06-01'
+import dayjs from 'dayjs'
+// 调用接口，渲染四个片
+const date = dayjs().format('YYYY-MM-DD')
 interface TestData {
   user_total_count: number
   register_count: number
+  group_total_count: number
+  group_create_count: number
 }
 const data = ref<TestData>({})
 const getData = async () => {
   const res = await getCountnumService(date)
-
   console.log(res)
   data.value = res
   console.log(data.value)
@@ -25,19 +28,19 @@ onMounted(async () => {
     <div class="card">
       <div class="cardItem">
         <div>当日注册人数</div>
-        <span>{{ data.user_total_count }}</span>
+        <span>{{ data.register_count }}</span>
       </div>
       <div class="cardItem">
         <div>当日新建群</div>
-        <span></span>
+        <span>{{ data.group_create_count }}</span>
       </div>
       <div class="cardItem">
         <div>当前总用户</div>
-        <span></span>
+        <span>{{ data.user_total_count }}</span>
       </div>
       <div class="cardItem">
         <div>当前总群数</div>
-        <span></span>
+        <span>{{ data.group_total_count }}</span>
       </div>
     </div>
     <div class="registerStatistics">
@@ -47,6 +50,7 @@ onMounted(async () => {
           <calendarCom></calendarCom>
         </div>
       </div>
+      <lineChart></lineChart>
     </div>
     <div class="volumeStatistics">
       <div class="registerBar">
