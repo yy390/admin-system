@@ -3,5 +3,4 @@ import VerticalCom from './components/VerticalCom.vue';
 </script>
 <template>
   <VerticalCom></VerticalCom>
-  <span class="iconfont icon-quanping"></span>
 </template>

@@ -42,7 +42,10 @@ const rankingData = computed(() => {
 // 图表配置
 const option = ref({
   tooltip: {
-    trigger: 'axis'
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
   },
   xAxis: {
     type: 'category',
@@ -53,10 +56,11 @@ const option = ref({
   },
   series: [
     {
+      name: '群数',
       data: [] as number[],
-      type: 'line'
+      type: 'bar'
     }
-  ],
+  ]
 })
 
 // 监听数据变化并更新图表
@@ -120,8 +124,7 @@ watch(
   box-sizing: border-box;
   display: flex;
   background-color: white;
-  height: 439px;
-
+  height: 410px;
   .chart-section {
     flex: 1;
     height: 100%;
@@ -181,3 +184,4 @@ watch(
   }
 }
 </style>
+

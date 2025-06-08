@@ -9,7 +9,7 @@ import TabsboxCom from './TabsboxCom.vue'
     <el-container>
       <el-aside>
         <div class="title">
-          <img src="../../../assets/logo.png" />
+          <img src="../../../assets/logo.png" alt="logo"/>
           <span>唐僧叨叨后台管理</span>
         </div>
         <AsideCom></AsideCom>
@@ -17,10 +17,7 @@ import TabsboxCom from './TabsboxCom.vue'
       <el-container>
         <el-header>
           <HeaderCom></HeaderCom>
-          <div class="userMessage">
-            dfdfbs
-            <span style="background-color: pink;">sda</span>
-          </div>
+          
         </el-header>
         <div class="tabs-box">
           <TabsboxCom></TabsboxCom>
@@ -68,10 +65,6 @@ import TabsboxCom from './TabsboxCom.vue'
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #e3e6ec;
-    .userMessage {
-      display: flex;
-      align-items: center;
-    }
   }
   .tabs-box {
     box-sizing: border-box;

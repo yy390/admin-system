@@ -3,7 +3,7 @@ import pinia from '@/stores/index'
 import App from './App.vue'
 import router from './router'
 import '@/assets/styles/global.scss'
-
+import '@/assets/iconfont/iconfont.css'
 import Echarts from 'vue-echarts'
 import * as echarts from 'echarts'
 

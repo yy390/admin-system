@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import calendarCom from './component/calendarCom.vue'
 import lineChart from './component/lineChart.vue'
+import barChart from './component/barChart.vue'
 import { onMounted, ref } from 'vue'
 import {
   getCountnumService,
@@ -187,15 +188,10 @@ onMounted(initialize)
           <calendarCom @date-range-change="handleGroupDateChange"></calendarCom>
         </div>
       </div>
-      <lineChart :chartData="groupChartData"></lineChart>
+      <barChart :chartData="groupChartData"></barChart>
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-/* 样式代码保持不变 */
-</style>
-
 <style lang="scss" scoped>
 .main {
   background: #f2f3f5;
@@ -221,9 +217,9 @@ onMounted(initialize)
       }
     }
   }
-
   .registerStatistics,
   .volumeStatistics {
+    box-sizing: border-box;
     background: white;
     border-radius: 2px;
     height: 492px;
