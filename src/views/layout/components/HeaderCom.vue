@@ -1,9 +1,8 @@
 <!-- Breadcrumb.vue -->
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
 import { ArrowRight } from '@element-plus/icons-vue'
-import { ref, watchEffect } from 'vue'
-
+import { ref, watchEffect} from 'vue'
+import { useRoute } from 'vue-router'
 const route = useRoute()
 const breadList = ref<string[]>([])
 

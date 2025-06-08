@@ -179,7 +179,6 @@ onMounted(initialize)
         </div>
       </div>
       <lineChart :chartData="registerChartData"></lineChart>
-      
     </div>
     <div class="volumeStatistics">
       <div class="registerBar">
