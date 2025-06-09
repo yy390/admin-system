@@ -2,16 +2,24 @@
 <script setup lang="ts">
 import { ArrowRight } from '@element-plus/icons-vue'
 import { ref, watchEffect } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute,useRouter } from 'vue-router'
+import {useAdminAuthStore} from '@/stores' 
+const userAdminStore = useAdminAuthStore()
 const route = useRoute()
+const router = useRouter()
 const breadList = ref<string[]>([])
-// const handleCommand = (key)=>{
-//   if(key==='logout'){
-
-//   }else{
-//     router.push('/setting/updatepwd')
-//   }
-// }
+const handleCommand = (key:string)=>{
+  if(key==='logout'){
+    //退出
+    //清楚token和user信息
+    userAdminStore.removeToken()
+    userAdminStore.setUser({})
+    router.push('/login')
+  }else{
+    // 跳转
+    router.push('/setting/updatepwd')
+  }
+}
 watchEffect(() => {
   const matched = route.matched
     .filter((item) => item.meta?.title)
@@ -54,6 +62,7 @@ watchEffect(() => {
               ><i class="iconfont icon-lock-line" /> 修改密码</el-dropdown-item
             >
             <el-dropdown-item
+            command="logout"
               ><i class="iconfont icon-guanji" />退出登录</el-dropdown-item
             >
           </el-dropdown-menu>

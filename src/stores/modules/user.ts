@@ -13,11 +13,17 @@ export const useAdminAuthStore = defineStore(
     const removeToken = () => {
       token.value = ''
     }
+    const user = ref({})
+    const setUser =(obj:string)=>{
+      user.value=obj
+    }
+
     //   定义完之后，需要暴露出去，否则别的模块不能使用
     return {
       token,
       setToken,
-      removeToken
+      removeToken,
+      setUser
     }
   },
   // 进行持久化
